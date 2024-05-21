@@ -1,0 +1,17 @@
+<div class="container mt-4">
+  <h3>Welcome to the longest word-game!<h3>
+  <h4 class="mt-4">Here is your grid:</h4>
+  <div>
+    <% @letters.each do |letter| %>
+      <span style="font-size: 1.5em;" class="letter-box"><%= letter %></span>
+    <% end %>
+  </div>
+  <h4 class="mt-4">What is your longest word?</h4>
+
+  <form class="container" action="score" method="post" data-turbo="false">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= hidden_field_tag :letters, @letters %>
+    <input class="d-block p-2 mt-3" type="text" name="word">
+    <input type="submit" class="btn btn-primary mt-3" value="Play!">
+  </form>
+</div>
